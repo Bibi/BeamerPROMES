@@ -1,0 +1,379 @@
+%%% When using English:
+\documentclass[9pt,english]{Beamer_PROMES}\uselanguage{English}\languagepath{English}
+%%% When using French:
+% \documentclass[9pt,french]{Beamer_PROMES}\usepackage[french]{babel}\uselanguage{French}\languagepath{French}
+
+%%% Your packages here!
+%%% (Already loaded: fontenc, tikz (+fadings), xsavebox, textcomp, etoolbox, cmbright, mathtools)
+
+
+\title{Very very very very very very very very very very very very\\ very long title (to be avoided, of course), that needs\\ manual linebreaking\dots}
+% \subtitle{Optional subtitle}
+\author{Author(s)}
+\institute{
+Processes, materials and solar energy laboratory (PROMES--CNRS, UPR 8521)\\[1pt]
+University of Perpignan Via Domitia\\[1pt]
+Another affiliation
+}
+\date{Conference ABCD --- \today}
+
+%++++++++++++++++++
+\begin{document}
+%++++++++++++++++++
+
+%%% Title page
+\maketitlepage{4cm}% Use the argument to adjust vertical space, if needed
+
+%%% Global outline
+% \makeglobaloutline          % Use this when not using \part
+\makeglobaloutlinewithparts   % Use this instead when using \part
+
+
+\part{Part 1 -- Bibi's PROMES beamer template}
+
+\section{First section}
+
+\subsection{Introduction}
+
+%------------------
+\begin{frame}[fragile]% [fragile] option needed to use \verb. REMOVE IT if not necessary...
+
+This is Bibi's PROMES beamer template, with \emph{automatic generation} of:
+%
+\begin{itemize}
+   \item title page and global outline
+   \item titles and subtitles of all slides, based on the structure of the presentation with \verb=\section= and \verb=\subsection=
+   \item outline slides at the beginning of each new \verb=\section=
+   \item bullets to indicate the number of slides in each \verb=\subsection=
+\end{itemize}
+%
+In case of long presentations (such as a PhD defense), \verb=\part= can also be used: outline slides are then given at the beginning of each new part (showing the sections only, since it would usually be too long to also show the subsections).\\[1cm]
+
+For comments, questions, issues, etc.: https://github.com/Bibi/BeamerPROMES
+
+\end{frame}
+%------------------
+
+
+\subsection{Blocks}
+%------------------
+\begin{frame}
+
+\begin{block}{normal}
+   Lorem ipsum dolor sit amet
+   %
+   \begin{itemize}
+      \item a
+      \item z
+   \end{itemize}
+   %
+\end{block}
+
+\begin{exampleblock}{exampleblock}
+   Lorem ipsum dolor sit amet
+   %
+   \begin{itemize}
+      \item a
+      \item z
+   \end{itemize}
+   %
+\end{exampleblock}
+
+\begin{alertblock}{alertblock}
+   Lorem ipsum dolor sit amet
+   %
+   \begin{itemize}
+      \item a
+      \item z
+   \end{itemize}
+   %
+\end{alertblock}
+
+\end{frame}
+%------------------
+\subsection{Splitting a slide into columns}
+%------------------
+\begin{frame}[fragile]% [fragile] option needed to use \verb. REMOVE IT if not necessary...
+
+To maximize the width without exceeding the \verb=\textwidth=, and to have a better alignment with the surrounding text: use the \verb=onlytextwidth= option (and column widths adding to 1).
+
+Example of two top-aligned columns of with \verb=0.5\textwidth-0.4cm=:
+
+\vspace{3mm}
+\begin{columns}[t,onlytextwidth]
+   \begin{column}{0.5\textwidth-0.4cm}
+      First column. The black line below shows the column's width.
+      \par\noindent\rule{\textwidth}{1pt}
+      
+      \begin{block}{Block title}
+         Note that the block frame exceeds the column's width.
+      \end{block}
+   \end{column}
+   \begin{column}{0.5\textwidth-0.4cm}
+      Second column. The black line below shows the column's width.
+      \par\noindent\rule{\textwidth}{1pt}
+      <another line>\\
+      <another line>
+   \end{column}
+\end{columns}
+\vspace{3mm}
+
+The second value in the column's width (\verb=0.4cm=) is used to increase or decrease the separation between columns (it is equal to twice that value); example of two top-aligned columns with \verb=0.5\textwidth-0.2cm=:
+
+\vspace{3mm}
+\begin{columns}[t,onlytextwidth]
+   \begin{column}{0.5\textwidth-0.2cm}
+      First column\\
+      <second line>
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+   % \rule{0.4cm}{1pt}%
+   \begin{column}{0.5\textwidth-0.2cm}
+      Second column
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+\end{columns}
+
+\end{frame}
+%------------------
+%------------------
+\begin{frame}
+
+Example of three center-aligned columns.
+
+\vspace{3mm}
+\begin{columns}[c,onlytextwidth]
+   \begin{column}{0.33\textwidth-0.2cm}
+      First column (33\%)
+      <second line>
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+   \begin{column}{0.33\textwidth-0.2cm}
+      Second column (33\%)
+      <second line>\\
+      <third line>
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+   \begin{column}{0.33\textwidth-0.2cm}
+      Third column (33\%)
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+\end{columns}
+\vspace{3mm}
+
+Example of three bottom-aligned columns.
+
+\vspace{3mm}
+\begin{columns}[b,onlytextwidth]
+   \begin{column}{0.2\textwidth-0.2cm}
+      First column (20\%)\\
+      <second line>
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+   \begin{column}{0.3\textwidth-0.2cm}
+      Second column (30\%)\\
+      <second line>\\
+      <third line>
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+   \begin{column}{0.5\textwidth-0.2cm}
+      Third column (50\%)
+      \par\noindent\rule{\textwidth}{1pt}
+   \end{column}
+\end{columns}
+\vspace{3mm}
+
+\end{frame}
+%------------------
+\section{Including graphics}
+\subsection{figure vs center vs centering}
+%------------------
+\begin{frame}[fragile]% [fragile] option needed to use \verb. REMOVE IT if not necessary...
+
+People that know what they are doing should use \verb=\centering= to center figures, not \verb=center= or \verb=figure= environments, as these are usually superfluous in slides and will introduce extra vertical space. Example of top-aligned columns:
+
+\vspace{3mm}
+\begin{columns}[t,onlytextwidth]
+   \centering
+   \fbox{\begin{column}{0.3\textwidth-0.5cm}
+      \begin{figure}[htbp]
+         \centering
+         \includegraphics[width=\textwidth]{example-image-a}
+         \caption{With figure}
+      \end{figure}
+   \end{column}}
+   \fbox{\begin{column}{0.3\textwidth-0.5cm}
+      \begin{center}
+         \includegraphics[width=\textwidth]{example-image-b}
+         With center
+      \end{center}
+   \end{column}}
+   \fbox{\begin{column}{0.3\textwidth-0.5cm}
+      \centering\vspace{0pt}
+      \includegraphics[width=\textwidth]{example-image-c}
+      With centering
+   \end{column}}
+\end{columns}
+\vspace{3mm}
+
+
+\end{frame}
+%------------------
+\subsection{Alignment}
+%------------------
+\begin{frame}[fragile]% [fragile] option needed to use \verb. REMOVE IT if not necessary...
+
+When using \verb=centering=, use \verb=\par\vspace{0pt}= to avoid some strange\footnote{Not really (see \url{http://tug.ctan.org/info/epslatex.pdf}).} alignment situations.\\[3mm]
+
+Should be top-aligned\dots
+
+\vspace{3mm}
+\begin{columns}[t]
+   \centering
+   \begin{column}{0.1\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{example-image-a}
+   \end{column}
+   \begin{column}{0.2\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{example-image-b}
+   \end{column}
+   \begin{column}{0.1\textwidth}
+      \centering
+      \includegraphics[width=\textwidth]{example-image-c}
+   \end{column}
+\end{columns}
+\vspace{3mm}
+
+Top-aligned!
+
+\vspace{3mm}
+\begin{columns}[t]
+   \centering
+   \begin{column}{0.1\textwidth}
+      \centering
+      \par\vspace{0pt}
+      \includegraphics[width=\textwidth]{example-image-a}
+   \end{column}
+   \begin{column}{0.2\textwidth}
+      \centering
+      \par\vspace{0pt}
+      \includegraphics[width=\textwidth]{example-image-b}
+   \end{column}
+   \begin{column}{0.1\textwidth}
+      \centering
+      \par\vspace{0pt}
+      \includegraphics[width=\textwidth]{example-image-c}
+   \end{column}
+\end{columns}
+
+\end{frame}
+%------------------
+
+\part{Part 2 -- Some title}
+%------------------
+\begin{frame}
+
+\color{red}When using parts: you should not have a frame in a part but outside a section, since the frame title will be empty, as shown here\dots
+
+\end{frame}
+%------------------
+\section{A section in the second part}
+%------------------
+\begin{frame}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{frame}
+%------------------
+\subsection{A subsection in the second part}
+%------------------
+\begin{frame}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{frame}
+%------------------
+\subsection{Another subsection in the second part}
+%------------------
+\begin{frame}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{frame}
+%------------------
+%------------------
+\begin{frame}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{frame}
+%------------------
+\section{Another section in the second part}
+%------------------
+\begin{frame}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{frame}
+%------------------
+\subsection{A subsection}
+%------------------
+\begin{frame}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\end{frame}
+%------------------
+\subsubsection{A subsubsection}
+%------------------
+\begin{frame}[fragile]% [fragile] option needed to use \verb. REMOVE IT if not necessary...
+
+\verb=\subsubsection= are (kinda) supported, but should be avoided if possible.\\[1cm]
+
+Subsubsection frame 1
+
+\end{frame}
+%------------------
+%------------------
+\begin{frame}
+
+Subsubsection frame 2
+
+\end{frame}
+%------------------
+\subsubsection{Another subsubsection}
+%------------------
+\begin{frame}
+
+Subsubsection frame 1
+
+\end{frame}
+%------------------
+%------------------
+{% LAST SLIDE, with empty frametitle and footline
+\setbeamertemplate{footline}{}%
+\setbeamertemplate{frametitle}{}%
+
+\begin{frame}[c,noframenumbering]
+
+\centering
+\vspace{1cm}
+\large
+Thank you for your attention!
+
+\vspace{1cm}
+\tiny\color{gray!80}
+\begin{tabular}{lp{0.7\linewidth}}
+   [Doe-2020a] & J. Doe. \emph{Some title.} In: some conference. Some country, January 2020.\\[1mm]
+   [Doe-2021a] & J. Doe. \emph{Some title.} In: another conference. Some country, January 2021.\\[1mm]
+   [Doe-2022a] & J. Doe. \emph{Another long long long long long long long long long long long long long long long long long long title.} Some journal, 66(6), p. 666-666 (2022).
+\end{tabular}
+
+\end{frame}
+}% END OF LAST SLIDE
+%------------------
+
+%++++++++++++++++++
+\end{document}
+%++++++++++++++++++
