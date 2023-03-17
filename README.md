@@ -1,2 +1,2 @@
 # BeamerPROMES
-Template for presentations using beamer (LaTeX) using PROMES-CNRS style  
+Template for presentations using beamer (LaTeX) with PROMES-CNRS style.
